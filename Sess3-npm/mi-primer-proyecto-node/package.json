@@ -1,0 +1,33 @@
+{
+  "name": "kodemia-back",
+  "version": "0.0.1",
+  "description": "Este es mi primer proyecto con NODE",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "echo \"INICIADO EN MODO DESARROLLO\" && exit 1",
+    "start": "echo \"INICIADO EN MODO DE PRODUCCIÓN\n\n\" && node src/main.js",
+    "hola": "echo 'Hola, mundo' && exit 0",
+    "mi-primer-script": "ls -a"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoisesGJ/BACKEND.git"
+  },
+  "keywords": [
+    "project",
+    "kodemia",
+    "backend",
+    "node"
+  ],
+  "author": "MoisesGJ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MoisesGJ/BACKEND/issues"
+  },
+  "homepage": "https://github.com/MoisesGJ/BACKEND#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0",
+    "prompt-sync-history": "^1.0.1"
+  }
+}

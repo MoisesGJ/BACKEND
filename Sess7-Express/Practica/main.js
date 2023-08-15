@@ -11,6 +11,12 @@ if (!fs.existsSync('koders.json')) {
 
 let koders = JSON.parse(fs.readFileSync('koders.json', { encoding: 'utf-8' }));
 
+const updateKoders = (data) => {
+  fs.writeFileSync('koders.json', JSON.stringify(data), {
+    encoding: 'utf-8',
+  });
+};
+
 server.use(express.json());
 
 server.get('/koders', (rq, rs) => rs.json(koders));
@@ -18,9 +24,7 @@ server.get('/koders', (rq, rs) => rs.json(koders));
 server.post('/koders', (rq, rs) => {
   koders.push(rq.body);
 
-  fs.writeFileSync('koders.json', JSON.stringify(koders), {
-    encoding: 'utf-8',
-  });
+  updateKoders(koders);
 
   rs.json({ message: 'Koder agregado correctamente' });
 });
@@ -36,18 +40,16 @@ server.delete('/koders/:name', (rq, rs) => {
   const newkoders = koders.filter(({ name }) => name !== rq.params.name);
   koders = newkoders;
 
-  fs.writeFileSync('koders.json', JSON.stringify(koders), {
-    encoding: 'utf-8',
-  });
+  updateKoders(koders);
+
   rs.json({ message: 'Koder eliminado correctamente' });
 });
 
 server.delete('/koders', (rq, rs) => {
   koders = [];
 
-  fs.writeFileSync('koders.json', JSON.stringify(koders), {
-    encoding: 'utf-8',
-  });
+  updateKoders(koders);
+
   rs.json({ message: 'Koders eliminados correctamente' });
 });
 

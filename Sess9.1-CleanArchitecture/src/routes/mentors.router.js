@@ -9,9 +9,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const { name, email, program, generation } = req.body;
+  const { name, email } = req.body;
 
-  mentors.create(name, email, program, generation);
+  mentors.create(name, email);
 
   res.json({ message: 'POST /mentores', status: 'Mentor created' });
 });
